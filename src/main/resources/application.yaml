@@ -31,9 +31,17 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
+logging:
+  level:
+    com.itrumuserservice: DEBUG
+
 message:
   empty-wallet-id: UUID of wallet is empty
   empty-operation-type: Operation type is empty
   amount-min-value: The transfer amount must be at least 1
   invalid-uuid: Invalid UUID of wallet
   wallet-not-found: Wallet not found
+
+redis-params:
+  wallet-key-prefix: wallet-uuid-
+  wallet-ttl-minutes: 15
