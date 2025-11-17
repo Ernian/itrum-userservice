@@ -1,10 +1,10 @@
 package com.itrumuserservice.dto;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 public record WalletDto(
-        UUID id,
+        String id,
+        String userId,
         BigDecimal amount,
         String currency
 ) {

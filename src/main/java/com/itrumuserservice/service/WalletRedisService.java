@@ -25,7 +25,7 @@ public class WalletRedisService {
     }
 
     public void cache(WalletDto walletDto) {
-        String key = walletKeyPrefix + walletDto.id().toString();
+        String key = walletKeyPrefix + walletDto.id();
         redisTemplate.opsForValue().set(key, walletDto, Duration.ofMinutes(walletTtlMinutes));
     }
 }

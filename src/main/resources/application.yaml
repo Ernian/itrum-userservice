@@ -31,16 +31,28 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic:
+      transaction-request:
+        name: transaction-request
+        partitions: 3
+        replicas: 1
+
 logging:
   level:
     com.itrumuserservice: DEBUG
 
+app:
+  amount-min-value: 1
+
 message:
-  empty-wallet-id: UUID of wallet is empty
-  empty-operation-type: Operation type is empty
+  empty-wallet-id: The wallet's UUID is empty
+  invalid-operation-type: Invalid type of operation
   amount-min-value: The transfer amount must be at least 1
-  invalid-uuid: Invalid UUID of wallet
-  wallet-not-found: Wallet not found
+  invalid-uuid: Invalid wallet UUID
+  wallet-not-found: The wallet was not found
+  transaction-response: Your request has been sent for processing
 
 redis-params:
   wallet-key-prefix: wallet-uuid-

@@ -1,5 +1,7 @@
 package com.itrumuserservice.exception.handler;
 
+import com.itrumuserservice.exception.InvalidAmountException;
+import com.itrumuserservice.exception.InvalidOperationTypeException;
 import com.itrumuserservice.exception.InvalidUUIDException;
 import com.itrumuserservice.dto.ErrorResponse;
 import com.itrumuserservice.exception.WalletNotFoundException;
@@ -29,6 +31,24 @@ public class GlobalExceptionHandler {
         return ErrorResponse.builder()
                 .status(HttpStatus.BAD_REQUEST)
                 .message(walletNotFoundMessage)
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(InvalidOperationTypeException.class)
+    public ErrorResponse handleInvalidOperationTypeException(InvalidOperationTypeException e) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .message(e.getMessage())
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(InvalidAmountException.class)
+    public ErrorResponse handleInvalidAmountException(InvalidAmountException e) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .message(e.getMessage())
                 .build();
     }
 }

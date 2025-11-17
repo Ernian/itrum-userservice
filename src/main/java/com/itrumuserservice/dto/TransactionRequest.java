@@ -1,20 +1,15 @@
 package com.itrumuserservice.dto;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import lombok.Builder;
+
 import java.math.BigDecimal;
 
+@Builder
 public record TransactionRequest(
-        @NotNull(message = "${message.empty-wallet-id}")
-        @NotBlank(message = "${message.empty-wallet-id}")
         String walletId,
-
-        @NotNull(message = "${message.empty-operation-type}")
-        @NotBlank(message = "${message.empty-operation-type}")
         String type,
-
-        @Min(message = "${message.amount-min-value}", value = 1)
-        BigDecimal amount
+        BigDecimal amount,
+        String transactionId,
+        String userId
 ) {
 }
