@@ -1,4 +1,4 @@
-INSERT INTO itrum_demo.wallet (id, amount, user_id, currency)
+INSERT INTO itrum_demo.wallet (id, balance, user_id, currency)
 VALUES ('22881a13-07bf-4408-90c7-95da21f3da91',
         1000,
         'e67cd52b-a5f7-496e-a6ba-a95d28efbf42',

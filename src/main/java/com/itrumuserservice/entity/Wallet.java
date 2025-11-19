@@ -19,12 +19,12 @@ public class Wallet {
     @Column(name = "id", columnDefinition = "UUID")
     private UUID id;
 
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private UUID userId;
 
-    @Column(name = "amount")
-    private BigDecimal amount;
+    @Column(name = "balance", nullable = false)
+    private BigDecimal balance;
 
-    @Column(name = "currency")
+    @Column(name = "currency", nullable = false, length = 3)
     private String currency;
 }
