@@ -44,13 +44,13 @@ public class WalletControllerTest {
         String walletId = UUID.randomUUID().toString();
         String userId = UUID.randomUUID().toString();
         String currency = "RUB";
-        BigDecimal amount = new BigDecimal(100);
+        BigDecimal balance = new BigDecimal(100);
 
         WalletDto walletDto = WalletDto.builder()
                 .id(walletId)
                 .userId(userId)
                 .currency(currency)
-                .amount(amount)
+                .balance(balance)
                 .build();
 
         when(walletService.getWalletById(walletId)).thenReturn(walletDto);
@@ -61,7 +61,7 @@ public class WalletControllerTest {
                 .andExpect(jsonPath("$.id").value(walletId))
                 .andExpect(jsonPath("$.userId").value(userId))
                 .andExpect(jsonPath("$.currency").value(currency))
-                .andExpect(jsonPath("$.amount").value(amount));
+                .andExpect(jsonPath("$.balance").value(balance));
     }
 
     @Test
